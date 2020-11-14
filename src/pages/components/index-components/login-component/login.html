@@ -1,0 +1,37 @@
+<template>
+    <form id="login-form" class="rounded  p-3" submit.delegate="userLogin()">
+        <h2 class="text-center font-weight-bold pt-4">Sign In</h2>
+        <div class="form-group pt-5" validation-errors="errors.bind:loginEmailErrors">
+            <label for="user-login-email">Email:</label>
+            <input type="text" class="form-control" id="user-login-email"
+                   value.bind="loginEmail & validate:loginController">
+            <ul>
+                <li class="help-block text-danger" id="invalid-login-email"
+                    repeat.for="emailErrors of loginEmailErrors">
+                    ${emailErrors.error.message}
+                </li>
+            </ul>
+        </div>
+        <div class="form-group" validation-errors="errors.bind:loginPasswordErrors">
+            <label for="login-password">Password:</label>
+            <input type="password" class="form-control" id="login-password"
+                   value.bind="loginPassword & validate:loginController">
+            <ul>
+                <li class="help-block text-danger" id="invalid-login-password"
+                    repeat.for="passwordErrors of loginPasswordErrors">
+                    ${passwordErrors.error.message}
+                </li>
+            </ul>
+        </div>
+        <div show.bind="incorrectCredentials" class="alert alert-danger alert-dismissible"
+             id="incorrect-credentials-error">
+            <strong>Error!</strong> Your email or password is incorrect
+        </div>
+        <div class="text-center">
+            <input type="submit" id="signin-button" class="btn mr-8 index-button col-lg-3 col-md-3"
+                   value="Sign In"><br><br>
+            <a class="forget-password" id="forget-password" click.delegate="toggleForgetPassword()">
+                Forget Password?</a>
+        </div>
+    </form>
+</template>

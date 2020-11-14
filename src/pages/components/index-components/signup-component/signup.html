@@ -1,0 +1,42 @@
+<template>
+    <form class=" p-3 " submit.delegate="userSignup()">
+        <h2 class="text-center font-weight-bold pt-6">Sign up</h2>
+        <div class="form-group pt-5"
+             validation-errors="errors.bind:signupUserNameErrors; controller.bind:signupController">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name"
+                   value.bind="userName & validate:signupController">
+            <ul>
+                <li class="help-block text-danger" id="invalid-name"
+                    repeat.for="nameErrors of signupUserNameErrors">
+                    ${nameErrors.error.message}
+                </li>
+            </ul>
+        </div>
+        <div class="form-group"
+             validation-errors="errors.bind:signupEmailErrors; controller.bind:signupController">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email"
+                   value.bind="userEmail & validate:signupController">
+            <ul>
+                <li class="help-block text-danger" id="invalid-email"
+                    repeat.for="emailErrors of signupEmailErrors">
+                    ${emailErrors.error.message}
+                </li>
+            </ul>
+        </div>
+        <div show.bind="successRegisteredMessage" class="alert alert-success alert-dismissible"
+             id="success-registered-message">
+            <strong>Success!</strong> Your account has been created successfully. Click
+            <a click.delegate="toggleLoginPage()" class="success-message-login-link">here</a>
+            to login.
+        </div>
+        <div show.bind="errorRegisteredMessage" class="alert alert-danger alert-dismissible" id="error-msg">
+            <strong>Error!</strong> Account already registered against this email.
+        </div>
+        <div class="text-center">
+            <input type="submit" id="signup-button" class="btn mr-8 index-button col-lg-3 col-md-3"
+                   value="Sign up">
+        </div>
+    </form>
+</template>

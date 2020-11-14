@@ -1,0 +1,24 @@
+<template>
+    <require from="../../../css/stylesheet.css"></require>
+    <require from="../../components/index-components/signup-component/signup"></require>
+    <require from="../../components/index-components/login-component/login"></require>
+    <require from="../../components/index-components/forget-password-component/forget-password"></require>
+
+    <h1 class="px-5 py-2 text-white index-heading">Mediavase</h1>
+    <div class="form-bg">
+        <div class="bg-white border border-dark py-4 rounded signin-form mx-auto">
+            <div class="text-center">
+                <a class="change-form-links" id="sign-in"
+                   click.delegate="toggleViews(0)">Sign-in
+                </a>
+                <span>|</span>
+                <a class="change-form-links" id="sign-up"
+                   click.delegate="toggleViews(1)">Sign-up
+                </a>
+            </div>
+            <signup show.bind="signUp"></signup>
+            <login show.bind="signIn"></login>
+            <forget-password show.bind="forgetPassword"></forget-password>
+        </div>
+    </div>
+</template>

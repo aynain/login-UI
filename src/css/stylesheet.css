@@ -1,0 +1,27 @@
+/* Index page */
+.index-heading {
+  background: #132227 !important;
+  font-family: Georgia;
+  margin: 0;
+}
+.form-bg{
+  /*background: #525B56;*/
+  padding: 30px;
+
+}
+.signin-form{
+  width: 40%;
+  border-radius: 10px;
+  padding: 20px ;
+  box-shadow: 10px 10px silver;
+}
+.index-button{
+  background: #132227;
+  color: white;
+}
+.index-button:hover
+{
+  color: white;
+}
+
+
